@@ -11,6 +11,11 @@
         "hdb": "^0.18.3"
     },
     "devDependencies": {
+        "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+        "@sap/hdi-deploy": "^4.2.0",
+        "@sap/ux-specification": "^1.90.11",
+        "@sapui5/ts-types": "^1.92.2",
+        "eslint": "^7.32.0",
         "sqlite3": "^5.0.2"
     },
     "scripts": {
