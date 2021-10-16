@@ -1,4 +1,9 @@
 {
+    "destinations": [{
+        "name": "srv-api",
+        "url": "http://localhost:4004",
+        "forwardAuthToken": true
+    }],    
 	"VCAP_SERVICES": {
         "xsuaa": [{
             "name": "MyHANAApp-xsuaa-service",

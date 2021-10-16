@@ -46,6 +46,9 @@
 					<Column id="nameColumn">
 						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
 					</Column>
+					<Column id="logTextColumn">
+						<Text text="{i18n>tableLogTextColumnTitle}" id="logTextColumnTitle"/>
+					</Column>
 					<Column id="unitNumberColumn" hAlign="End">
 						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 					</Column>
@@ -58,6 +61,8 @@
 						<cells>
 							<ObjectIdentifier
 								title="{INTHeader_ID}"/>
+							<ObjectAttribute
+								title="{LOGTEXT}"/>
 							<ObjectNumber
 								number="{
 									path: 'INTHeader_ID',

@@ -1,6 +1,8 @@
 {
-  "namespace": "app.interactions",
   "definitions": {
+    "app.interactions": {
+      "kind": "context"
+    },
     "app.interactions.BusinessKey": {
       "kind": "type",
       "type": "cds.String",
@@ -95,9 +97,57 @@
         }
       }
     },
+    "V_INTERACTION": {
+      "kind": "entity",
+      "@cds.persistence.exists": true,
+      "@cds.persistence.calcview": true,
+      "elements": {
+        "ID": {
+          "@title": "ID: ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNER": {
+          "@title": "PARTNER: PARTNER",
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "LOG_DATE": {
+          "@title": "LOG_DATE: LOG_DATE",
+          "key": true,
+          "type": "cds.String"
+        },
+        "BPCOUNTRY_CODE": {
+          "@title": "BPCOUNTRY_CODE: BPCOUNTRY_CODE",
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "TEXT_ID": {
+          "@title": "TEXT_ID: TEXT_ID",
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "LANGU": {
+          "@title": "LANGU: LANGU",
+          "key": true,
+          "type": "cds.String",
+          "length": 2
+        },
+        "LOGTEXT": {
+          "@title": "LOGTEXT: LOGTEXT",
+          "key": true,
+          "type": "cds.String",
+          "length": 1024
+        }
+      }
+    },
     "CatalogService": {
       "@source": "interaction_srv.cds",
-      "kind": "service"
+      "kind": "service",
+      "@requires": "authenticated-user"
     },
     "CatalogService.Interactions_Header": {
       "kind": "entity",
@@ -189,6 +239,65 @@
         },
         "LOGTEXT": {
           "type": "app.interactions.LText",
+          "length": 1024
+        }
+      }
+    },
+    "CatalogService.sleep": {
+      "kind": "function",
+      "returns": {
+        "type": "cds.Boolean"
+      }
+    },
+    "CatalogService.V_Interation": {
+      "kind": "entity",
+      "@readonly": true,
+      "projection": {
+        "from": {
+          "ref": [
+            "V_INTERACTION"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "@title": "ID: ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "PARTNER": {
+          "@title": "PARTNER: PARTNER",
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "LOG_DATE": {
+          "@title": "LOG_DATE: LOG_DATE",
+          "key": true,
+          "type": "cds.String"
+        },
+        "BPCOUNTRY_CODE": {
+          "@title": "BPCOUNTRY_CODE: BPCOUNTRY_CODE",
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "TEXT_ID": {
+          "@title": "TEXT_ID: TEXT_ID",
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "LANGU": {
+          "@title": "LANGU: LANGU",
+          "key": true,
+          "type": "cds.String",
+          "length": 2
+        },
+        "LOGTEXT": {
+          "@title": "LOGTEXT: LOGTEXT",
+          "key": true,
+          "type": "cds.String",
           "length": 1024
         }
       }
